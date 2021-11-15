@@ -1,0 +1,1 @@
+https://www.kaggle.com/mathurinache/world-happiness-report/version/1?select=2020.csv
