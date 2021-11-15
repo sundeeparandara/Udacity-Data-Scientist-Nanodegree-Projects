@@ -1,0 +1,4 @@
+turn the outputing dataframe into a json
+feed it to the front end
+then figure out how to turn that json in to html table
+	https://getbootstrap.com/docs/4.0/components/list-group/

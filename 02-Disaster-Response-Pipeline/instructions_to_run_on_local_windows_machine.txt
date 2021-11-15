@@ -1,0 +1,6 @@
+https://github.com/pallets/flask/tree/main/examples/tutorial
+
+For running on local machine:
+"cd" to the directory with all the app code.
+in (anaconda) cmd, type "python app.py".
+cut and paste the "http://localhost:8000/" into a chrome browser.

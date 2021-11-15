@@ -1,7 +1,0 @@
-https://github.com/pallets/flask/tree/main/examples/tutorial
-
-For running on local machine:
-"cd" to the directory with all the code
-make sure the trigger file is named "app.py".
-in (anaconda) cmd, type "flask run".
-cut and paste the "http://127.0.0.1:5000" into a chrome browser.
