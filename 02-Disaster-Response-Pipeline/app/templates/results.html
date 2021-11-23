@@ -40,7 +40,7 @@
 	<div class="row text-center">
 		<form action="/" method="post">
 			<h1>Disaster Response Project</h1>
-			<p>Analyzing message data for distance response.<p>
+			<p>Analyzing message data for distance response.</p>
 			<input type="text" id="myInput" name="myInput" value="{{ myInput }}" class="form-control" placeholder="Enter a message to classify">
 			<!--<button type="button" id="myBtn" type="submit" class="btn btn-success btn-sm" >Classify Message</button>-->
 			<input type="submit" id="myBtn" value="myBtn" name="action1"/>
@@ -49,8 +49,16 @@
 				<p id="myMessage" class="fst-italic">{{ myInput }}</p>
 			</div>
 			<div id="displayResult">
-				<h3>Overview of Training Dataset</h3>
-				<img class="img-fluid" src="static/fake_result_table.png"></img>
+				<h3>Result</h3>
+				<p>{{dict_df_prediction}}</p>
+				<ul class="list-group">
+					{% for category, result in dict_df_prediction.items() %}
+						{% if result == 1 %}
+							<li class="list-group-item list-group-item-success text-center">{{category.replace('_', ' ').title()}}</li>
+						{% else %}
+							<li class="list-group-item list-group-item-dark text-center">{{category.replace('_', ' ').title()}}</li>
+						{% endif %}
+					{% endfor %}
 			</div>
 		</form>
 	</div>

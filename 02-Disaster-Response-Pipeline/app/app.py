@@ -6,6 +6,7 @@ from flask import render_template, request
 
 import pickle
 import pandas as pd
+import numpy as np
 
 app = Flask(__name__)
 
@@ -39,6 +40,9 @@ def send():
 		
 		prediction = model.predict([myInput])
 		
+		#print(type(prediction))
+		#print(prediction.shape)
+		
 		cols = ['related', 'request', 'offer', 'aid_related', 'medical_help',
 		   'medical_products', 'search_and_rescue', 'security', 'military',
 		   'child_alone', 'water', 'food', 'shelter', 'clothing', 'money',
@@ -48,11 +52,21 @@ def send():
 		   'weather_related', 'floods', 'storm', 'fire', 'earthquake', 'cold',
 		   'other_weather', 'direct_report']
 		
+		#print(np.shape(cols))
+		
+		
 		df_prediction = pd.DataFrame(data=prediction,columns=cols).transpose()
 
 		print(df_prediction)
 		
-		return render_template('results.html',myInput=myInput)
+		print(prediction.reshape(36,))
+		print(cols)
+		
+		dict_prediction = dict(zip(cols,prediction.reshape(36,)))
+		
+		print(dict_prediction)
+		
+		return render_template('results.html',myInput=myInput,dict_df_prediction=dict_prediction)
 
 
 def main():
