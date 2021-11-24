@@ -43,7 +43,7 @@
 			<p>Analyzing message data for distance response.</p>
 			<input type="text" id="myInput" name="myInput" value="{{ myInput }}" class="form-control" placeholder="Enter a message to classify">
 			<!--<button type="button" id="myBtn" type="submit" class="btn btn-success btn-sm" >Classify Message</button>-->
-			<input type="submit" id="myBtn" value="myBtn" name="action1"/>
+			<input type="submit" id="myBtn" value="Classify Message" name="action1"/>
 			<div id="displayMessage">
 				<h4>MESSAGE</h4>
 				<p id="myMessage" class="fst-italic">{{ myInput }}</p>
@@ -56,7 +56,7 @@
 						{% if result == 1 %}
 							<li class="list-group-item list-group-item-success text-center">{{category.replace('_', ' ').title()}}</li>
 						{% else %}
-							<li class="list-group-item list-group-item-dark text-center">{{category.replace('_', ' ').title()}}</li>
+							<li class="list-group-item list-group-item-white text-center">{{category.replace('_', ' ').title()}}</li>
 						{% endif %}
 					{% endfor %}
 			</div>
