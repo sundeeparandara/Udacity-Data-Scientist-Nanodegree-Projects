@@ -17,13 +17,14 @@ import joblib
 
 
 # load data from database
-path = r'D:\OneDrive\03-Learning\01-Online\Udacity-Data-Science-ND\100-Projects\02-Disaster-Response-Pipeline\data\disaster_response_cleaned.db'
+path = r'D:\OneDrive\03-Learning\01-Online\Udacity-Data-Science-ND\Udacity-Data-Scientist-Nanodegree-Projects\02-Disaster-Response-Pipeline\models\disaster_response_cleaned.db'
 path = path.replace('\\','\\\\')
-#print(path)
+print(path)
 sql_path = f"sqlite:///{path}"
-#print(sql_path)
+print(sql_path)
 engine = create_engine(sql_path)
 df = pd.read_sql('SELECT * FROM disaster_response_cleaned',con=engine)
+print('data loaded')
 
 X = df['message']
 Y = df.iloc[:,4:]
