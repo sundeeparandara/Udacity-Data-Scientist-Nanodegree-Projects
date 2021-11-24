@@ -18,7 +18,7 @@ The instructions below are how to run the app from Windows (has not been tested 
 3. Type "python app.py". 
 4. After a few seconds, the following message should appear "Running on http://localhost:8000/".
 5. Copy "http://localhost:8000/" to Chrome (or other browser).
-6. Use the app to classify an disaster response messages.
+6. Use the app to classify a disaster response messages.
 
 See the gif below:
 
