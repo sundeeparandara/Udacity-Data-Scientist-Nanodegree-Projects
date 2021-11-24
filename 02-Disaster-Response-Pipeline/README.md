@@ -20,10 +20,6 @@ The instructions below are how to run the app from Windows (has not been tested 
 5. Copy "http://localhost:8000/" to Chrome (or other browser).
 6. Use the app to classify a disaster response messages.
 
-See the gif below:
-
-![gif](disaster_response_project_gif.gif)
-
 ## Project Motivation<a name="motivation"></a>
 
 During times of crises, it is important for disaster response authorities to be able to respond effectively. The ability to respond effectively is based on the ability to accurately judge the category of the "call to aid".
