@@ -17,10 +17,20 @@ from sklearn.model_selection import GridSearchCV
 
 import pickle
 
+import sys
+import os
+
 def load_data():
     # load data from database
-    path = r'D:\OneDrive\03-Learning\01-Online\Udacity-Data-Science-ND\100-Projects\02-Disaster-Response-Pipeline\data\disaster_response_cleaned.db'
+    #path = r'D:\OneDrive\03-Learning\01-Online\Udacity-Data-Science-ND\100-Projects\02-Disaster-Response-Pipeline\data\disaster_response_cleaned.db'
+    #path = path.replace('\\','\\\\')
+    
+    cwd = os.getcwd()
+    input_db = sys.argv[1]
+    path = cwd + '\\' + str(input_db)
     path = path.replace('\\','\\\\')
+    print(path)
+
     sql_path = f"sqlite:///{path}"
     engine = create_engine(sql_path)
     df = pd.read_sql('SELECT * FROM disaster_response_cleaned',con=engine)
