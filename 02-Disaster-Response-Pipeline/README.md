@@ -11,7 +11,7 @@
 
 The code should run with no issues using Python versions 3.*.
 
-## Running the App
+### Running the App
 
 The instructions below are how to run the app from Windows (has not been tested in other OS):
 
@@ -22,7 +22,7 @@ The instructions below are how to run the app from Windows (has not been tested 
 5. Copy ```http://localhost:8000/``` to Chrome (or other browser).
 6. Use the app to classify a disaster response messages.
 
-## Running the ETL Pipeline
+### Running the ETL Pipeline
 
 If you want to run the ETL pipeline that cleans and stores the data:
 
@@ -30,15 +30,13 @@ If you want to run the ETL pipeline that cleans and stores the data:
 2. Type: ```python process_data.py messages.csv categories.csv disaster_response_cleaned.db```
 3. This will create a database file called ```disaster_response_cleaned.db```.
 
-## Running the ML Pipeline
+### Running the ML Pipeline
 
 If you want to ML pipeline that trains a classifier:
 
 1. Switch on Anaconda Command prompt (or equivalent) and browse to the 'models' folder.
 2. Type: ```python train_classifier.py disaster_response_cleaned.db```.
 3. This will create model file called ```classifier.pkl```.
-
-
 
 ## Project Motivation<a name="motivation"></a>
 
