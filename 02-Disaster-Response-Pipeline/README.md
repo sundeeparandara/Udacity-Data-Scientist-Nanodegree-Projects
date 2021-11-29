@@ -7,18 +7,38 @@
 4. [Results](#results)
 5. [Licensing, Authors, and Acknowledgements](#licensing)
 
-## Installation <a name="installation"></a>
+## Instructions<a name="installation"></a>
 
 The code should run with no issues using Python versions 3.*.
+
+## Running the App
 
 The instructions below are how to run the app from Windows (has not been tested in other OS):
 
 1. Download the entire repository.
 2. Switch on Anaconda Command prompt (or equivalent) and browse to the 'app' folder.
-3. Type "python app.py". 
+3. Type ```python app.py```. 
 4. After a few seconds, the following message should appear "Running on http://localhost:8000/".
-5. Copy "http://localhost:8000/" to Chrome (or other browser).
+5. Copy ```http://localhost:8000/``` to Chrome (or other browser).
 6. Use the app to classify a disaster response messages.
+
+## Running the ETL Pipeline
+
+If you want to run the ETL pipeline that cleans and stores the data:
+
+1. Switch on Anaconda Command prompt (or equivalent) and browse to the 'data' folder.
+2. Type: ```python process_data.py messages.csv categories.csv disaster_response_cleaned.db```
+3. This will create a database file called ```disaster_response_cleaned.db```.
+
+## Running the ML Pipeline
+
+If you want to ML pipeline that trains a classifier:
+
+1. Switch on Anaconda Command prompt (or equivalent) and browse to the 'models' folder.
+2. Type: ```python train_classifier.py disaster_response_cleaned.db```.
+3. This will create model file called ```classifier.pkl```.
+
+
 
 ## Project Motivation<a name="motivation"></a>
 
