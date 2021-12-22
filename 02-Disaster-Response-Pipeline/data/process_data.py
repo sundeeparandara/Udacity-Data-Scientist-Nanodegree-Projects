@@ -14,12 +14,12 @@ def load_data(messages_filepath, categories_filepath):
     df (dataframe): A dataset that contains the messages and the classifications.
     """
     #pass
-	#messages = pd.read_csv('messages.csv')
-	#categories = pd.read_csv('categories.csv')
-	messages = pd.read_csv(messages_filepath)
-	categories = pd.read_csv(categories_filepath)
-	df = messages.merge(categories,how='left',on='id')
-	return df
+    #messages = pd.read_csv('messages.csv')
+    #categories = pd.read_csv('categories.csv')
+    messages = pd.read_csv(messages_filepath)
+    categories = pd.read_csv(categories_filepath)
+    df = messages.merge(categories,how='left',on='id')
+    return df
 
 def clean_data(df):
     #pass
@@ -33,17 +33,18 @@ def clean_data(df):
     Returns:
     df (dataframe): A cleaned version of the above dataset.
     """
-	categories = df.categories.str.split(';',expand=True)
-	row = categories.iloc[0]
-	category_colnames = row.apply(lambda x: x[:-2])
-	categories.columns = category_colnames
-	for column in categories:
-		categories[column] = categories[column].str[-1]
-		categories[column] = categories[column].astype(int)
-	df.drop(['categories'],axis=1,inplace=True)
-	df = pd.concat([df,categories],axis=1)
-	df.drop_duplicates(inplace=True)
-	return df
+    categories = df.categories.str.split(';',expand=True)
+    row = categories.iloc[0]
+    category_colnames = row.apply(lambda x: x[:-2])
+    categories.columns = category_colnames
+    for column in categories:
+        categories[column] = categories[column].str[-1]
+        categories[column] = categories[column].astype(int)
+    df.drop(['categories'],axis=1,inplace=True)
+    df = pd.concat([df,categories],axis=1)
+    df = df[df['related']!=2]
+    df.drop_duplicates(inplace=True)
+    return df
 
 def save_data(df, database_filename):
 
@@ -59,12 +60,14 @@ def save_data(df, database_filename):
     """
 
     #pass  
-	#engine = create_engine('sqlite:///disaster_response_cleaned.db')
-	#df.to_sql('disaster_response_cleaned', engine, index=False, if_exists='replace')
-	engine_path = f'sqlite:///{database_filename}.db'
-	print(f'engine path = {engine_path}')
-	engine = create_engine(engine_path)
-	df.to_sql(database_filename, engine, index=False, if_exists='replace')
+    #engine = create_engine('sqlite:///disaster_response_cleaned.db')
+    #df.to_sql('disaster_response_cleaned', engine, index=False, if_exists='replace')
+    engine_path = f'sqlite:///{database_filename}'
+    print(f'engine path = {engine_path}')
+    engine = create_engine(engine_path)
+    table_name = database_filename.split('.')[0]
+    print(f'table name : {table_name}')
+    df.to_sql(table_name, engine, index=False, if_exists='replace')
 
 def main():
     """
